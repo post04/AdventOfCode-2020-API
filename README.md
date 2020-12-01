@@ -21,6 +21,10 @@ This package has 4 functions.
  
 # How to use
 
+```
+go get github.com/postrequest69/AdventOfCode-2020-API
+```
+
 ```go
 package main
 
