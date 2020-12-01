@@ -23,4 +23,45 @@ This package has 4 functions.
 
 ```go
 package main
+
+import (
+	"fmt"
+	"strconv"
+	"strings"
+
+	adventapi "github.com/postrequest69/AdventOfCode-2020-API"
+)
+
+func main() {
+	body := adventapi.GetBody()
+	numToMul := adventapi.GetNumToMultiply(body)
+	fmt.Println("Number:", numToMul)
+	currentday := adventapi.GetCurrentDay(body)
+	fmt.Println("Current Day:", currentday)
+	allStats := adventapi.GetAllStats(body)
+	for _, stat := range allStats {
+		stats := strings.Split(stat, "-")
+
+		total, err := strconv.Atoi(stats[1])
+		if err != nil {
+			fmt.Println(err)
+		}
+		oneStar, err := strconv.Atoi(stats[2])
+		if err != nil {
+			fmt.Println(err)
+		}
+		twostar := total - oneStar
+		fmt.Println("Day: " + stats[0] + "\n   - Total Submittions: " + strconv.Itoa(total) + "\n   - Two Star Submittions: " + strconv.Itoa(twostar) + "\n   - One Star Submittions: " + strconv.Itoa(oneStar))
+	}
+}
+```
+
+Output:
+```
+Number: 241
+Current Day: 1
+Day: 1
+   - Total Submittions: 8674
+   - Two Star Submittions: 7747
+   - One Star Submittions: 927
 ```
