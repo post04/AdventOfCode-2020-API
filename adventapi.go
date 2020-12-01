@@ -17,7 +17,7 @@ func GetBody() string {
 	}
 	bodyBytes, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
-		log.Fatal(err)
+		return "ERROR"
 	}
 	thing := string(bodyBytes)
 	return thing
@@ -33,7 +33,7 @@ func GetNumToMultiply(body string) int {
 			finalarr := strings.Split(kekw, " users.</p>")
 			numToMul1, err := strconv.Atoi(finalarr[0])
 			if err != nil {
-				fmt.Println(err)
+				return "ERROR"
 			}
 			numToMul = numToMul1
 		}
